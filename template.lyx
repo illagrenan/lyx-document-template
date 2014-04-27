@@ -1,0 +1,450 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrartcl
+\begin_preamble
+% ################################
+% PACKAGES
+% ################################
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{cancel,soul,ulem}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\usepackage{upgreek}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+% ################################
+
+\exhyphenpenalty=10000\hyphenpenalty=10000
+
+% ################################
+% Custom colors
+% ################################
+\usepackage{colortbl}
+\definecolor{lightgray}{gray}{0.8}
+\definecolor{green}{RGB}{0, 180, 0}
+\definecolor{cyan}{RGB}{0, 180, 180}
+\definecolor{yellow}{RGB}{211,211,0}
+% ################################
+
+\setlength{\parindent}{0pt}
+\date{}
+
+% ################################
+% Custom symbols
+% ################################
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+% ################################
+
+
+\makeatletter
+\let\old@start@align\start@align
+\def\start@align{\setcounter{equation}{0}\old@start@align}
+
+% \usepackage[backend=biber]{biblatex}
+% http://wiki.lyx.org/BibTeX/Biblatex.
+
+\makeatother
+% Added by lyx2lyx
+% Added by lyx2lyx
+
+
+% ################################
+% BOOKTABS settings
+% Source: http://tex.stackexchange.com/a/33761
+% ################################
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{colortbl}% http://ctan.org/pkg/colortbl
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+\newcommand{\headcol}{\rowcolor{tableheadcolor}} %
+\colorlet{tablerowcolor}{gray!10} % Table row separator colour = 10% gray
+\newcommand{\rowcol}{\rowcolor{tablerowcolor}} %
+    % Command \topline consists of a (slightly modified) \toprule followed by a \heavyrule rule of colour tableheadcolor (hence, 2 separate rules)
+\newcommand{\topline}{\arrayrulecolor{black}\specialrule{0.1em}{\abovetopsep}{0pt}%
+            \arrayrulecolor{tableheadcolor}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \midline consists of 3 rules (top colour tableheadcolor, middle colour black, bottom colour white)
+\newcommand{\midline}{\arrayrulecolor{tableheadcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinecw consists of 3 rules (top colour tablerowcolor, middle colour black, bottom colour white)
+\newcommand{\rowmidlinecw}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinewc consists of 3 rules (top colour white, middle colour black, bottom colour tablerowcolor)
+\newcommand{\rowmidlinewc}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{tablerowcolor}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinew consists of 1 white rule
+\newcommand{\rowmidlinew}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinec consists of 1 tablerowcolor rule
+\newcommand{\rowmidlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \bottomline consists of 2 rules (top colour
+\newcommand{\bottomline}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+\newcommand{\bottomlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+
+\usepackage{multirow}
+
+% ################################
+% End of booktabs settings
+% ################################
+
+
+% ################################
+% Fix footer page
+% ################################
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+% ################################
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language czech
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans cmbr
+\font_typewriter default
+\font_default_family sfdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command bibtex8
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 7
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\branch 5
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+\size giant
+Název dokumentu
+\end_layout
+
+\begin_layout Subtitle
+Podnadpis
+\end_layout
+
+\begin_layout Author
+
+\size normal
+John Doe 
+\family typewriter
+\size footnotesize
+<joh.doe@example.com>
+\end_layout
+
+\begin_layout Publishers
+Organizace / škola
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+sloppy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Úvod
+\end_layout
+
+\begin_layout Standard
+Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky
+ snad vůbec nepohybují.
+ Jenom tak klidně levitují ve vzduchu.
+ Jelikož slunce jasně září a na obloze byste od východu k západu hledali
+ mráček marně, balónky působí jako jakási fata morgána uprostřed pouště.
+ Zkrátka široko daleko nikde nic, jen zelenkavá tráva, jasně modrá obloha
+ a tři křiklavě barevné pouťové balónky, které se téměř nepozorovatelně
+ pohupují ani ne moc vysoko, ani moc nízko nad zemí.
+ Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice
+ či beton, možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné
+ barevné balónky prochází ostré sluneční paprsky.
+\end_layout
+
+\begin_layout Subsection
+Ukázka Booktabs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+arraystretch}{1.5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{ll}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+topline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+headcol 
+\backslash
+textbf{Příchuť} & 
+\backslash
+textbf{Mám rád?} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+midline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Citronová} & 
+\backslash
+checkmark~Ano 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Pistáciová} & 
+\backslash
+xmark~Ne 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Čokoládová} & 
+\backslash
+xmark~Ne 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Vanilková} & 
+\backslash
+checkmark~Ano 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Booktabs v praxi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
