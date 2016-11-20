@@ -1,66 +1,105 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrartcl
 \begin_preamble
 % ################################
 % PACKAGES
 % ################################
-\usepackage{lmodern}
-\usepackage{multicol}
-\usepackage{cancel,soul,ulem}
-\usepackage{amssymb}
+\usepackage{lmodern}				% Better fonts
+\usepackage{multicol}				% https://www.sharelatex.com/learn/Multiple_columns
+\usepackage{cancel}				
 \usepackage{pifont}
 \usepackage{pgfplots}
 \usepackage{upgreek}
 \usepackage{enumerate}
 \usepackage{etoolbox}
 \usepackage{slashbox}
+\usepackage{cleveref}
+\usepackage{colortbl}				% http://ctan.org/pkg/colortbl
+\usepackage{dirtree}				% directory tree visualisation
+% ################################
+% // END OF PACKAGES
 % ################################
 
-\exhyphenpenalty=10000\hyphenpenalty=10000
+% ################################
+% DOCUMENT SETTINGS
+% ################################
+\exhyphenpenalty=10000\hyphenpenalty=10000		% Disable word hypnetation
+\setlength{\parindent}{0pt}			% Disable paragraph intendation
+\date{}					% Disable autodate on first page
+
+\makeatletter				% See: https://tex.stackexchange.com/questions/135303/reset-equation-line-numbers-in-lyx
+\let\old@start@align\start@align
+\def\start@align{\setcounter{equation}{0}\old@start@align}
+
+\addtokomafont{disposition}{\rmfamily}		% See: https://tex.stackexchange.com/questions/25845/koma-script-change-font-of-sectioning-headings-to-serif
+\addtokomafont{descriptionlabel}{\rmfamily}		
+
+\hypersetup{%
+    pdfborder = {0 0 0},
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}	
+
+\renewcommand{\arraystretch}{1.5}			% See: https://tex.stackexchange.com/questions/35515/how-can-i-reduce-table-row-height
+% ################################
+% // END OF SETTINGS
+% ################################
 
 % ################################
-% Custom colors
+% CUSTOM COLORS
 % ################################
-\usepackage{colortbl}
+
 \definecolor{lightgray}{gray}{0.8}
 \definecolor{green}{RGB}{0, 180, 0}
 \definecolor{cyan}{RGB}{0, 180, 180}
 \definecolor{yellow}{RGB}{211,211,0}
 % ################################
-
-\setlength{\parindent}{0pt}
-\date{}
-
-% ################################
-% Custom symbols
-% ################################
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\xmark}{\ding{55}}
+% // END OF CUSTOM COLORS
 % ################################
 
+% ################################
+% CUSTOM SYMBOLS
+% ################################
+\newcommand{\cmark}{\ding{51}} 			% Checkmark
+\newcommand{\xmark}{\ding{55}} 			% X mark
 
 \makeatletter
-\let\old@start@align\start@align
-\def\start@align{\setcounter{equation}{0}\old@start@align}
-
-% \usepackage[backend=biber]{biblatex}
-% http://wiki.lyx.org/BibTeX/Biblatex.
-
+\def\LyX{L\kern-.2em% Define \LyX
+  {\sbox\z@ X%
+    \vbox to .9\ht\z@{\hbox{\check@mathfonts
+        \fontsize\sf@size\z@
+        \math@fontsfalse\selectfont
+        Y}%
+      \vss}%
+  }%
+\kern-.125emX\@}
 \makeatother
-% Added by lyx2lyx
-% Added by lyx2lyx
+% ################################
+% // END OF CUSTOM SYMBOLS
+% ################################
 
+% ################################
+% CUSTOM COMMANDS
+% ################################
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+% ################################
+% // END OF CUSTOM COMMANDS
+% ################################
 
 % ################################
 % BOOKTABS settings
 % Source: http://tex.stackexchange.com/a/33761
 % ################################
-
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
-\usepackage{colortbl}% http://ctan.org/pkg/colortbl
 \usepackage{amsmath}% http://ctan.org/pkg/amsmath
 \usepackage{xcolor}% http://ctan.org/pkg/xcolor
 \usepackage{graphicx}% http://ctan.org/pkg/graphicx
@@ -101,43 +140,42 @@
             \arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
 
 \usepackage{multirow}
-
 % ################################
 % End of booktabs settings
 % ################################
 
-
 % ################################
 % Fix footer page
 % ################################
-\fancypagestyle{plain}{%
+\fancypagestyle{plain}{
 \fancyhf{} % clear all header and footer fields
 \fancyfoot[C]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage} % except the center
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+\renewcommand{\footrulewidth}{0pt}
+}
 \pagestyle{plain}
 % ################################
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language czech
-\language_package babel
-\inputencoding auto
+\language_package auto
+\inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans cmbr
-\font_typewriter default
-\font_default_family sfdefault
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 1
-\bibtex_command bibtex8
+\bibtex_command default
 \index_command default
 \float_placement H
 \paperfontsize default
@@ -154,15 +192,24 @@
 \pdf_pdfusetitle true
 \papersize default
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \branch 5
 \selected 0
@@ -196,35 +243,75 @@
 
 \begin_layout Title
 
-\series bold
+\family roman
 \size giant
-Název dokumentu
+Document title
 \end_layout
 
 \begin_layout Subtitle
-Podnadpis
+Some subtitle
 \end_layout
 
 \begin_layout Author
-
-\size normal
-John Doe 
+Joh Doe, 
 \family typewriter
-\size footnotesize
-<joh.doe@example.com>
+<
+\family default
+
+\begin_inset CommandInset href
+LatexCommand href
+name "john@example.com"
+target "john@example.com"
+type "mailto:"
+
+\end_inset
+
+
+\family typewriter
+>
 \end_layout
 
-\begin_layout Publishers
-Organizace / škola
+\begin_layout Date
+
+\size large
+listopad 2016
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
+\begin_inset VSpace vfill
+\end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Graphics
+	filename images/by-sa.svg
+	width 3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\size footnotesize
+Licence 
+\begin_inset CommandInset href
+LatexCommand href
+name "CC BY-SA 4.0"
+target "https://creativecommons.org/licenses/by-sa/4.0/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
 \end_inset
 
 
@@ -240,12 +327,36 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+\begin_inset FloatList algorithm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-% 
+
 \backslash
 sloppy
 \end_layout
@@ -263,7 +374,654 @@ sloppy
 \end_layout
 
 \begin_layout Section
-Úvod
+Šablona pro
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LyX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Asymptotická složitost
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Box Shadowbox
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+Algoritmus je cenově optimální 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ má lineární zrychlení 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ má konstantní efektivnost.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Určuje operační náročnost algoritmu tak, že zjišťuje, jakým způsobem se
+ bude chování algoritmu měnit v závislosti na změně velikosti (počtu) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{red!50}{Ahoj}
+\end_layout
+
+\end_inset
+
+ vstupních dat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\bar under
+Cayleyho tabulka
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Lorem ipsum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+\color blue
+Nejdříve se permutuje dimenze, pak se překládají souřadnice.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Zanedbáváme multiplikativní a aditivní konstanty (aditivní konstantu navíc
+ vždy přebijeme konstantou multiplikativní)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AmazonWebServices2016"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $N$
+\end_inset
+
+ označuje 
+\series bold
+velikost vstupních dat
+\series default
+, zajímá nás chování funkce pro velká 
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=left,numberstyle={\footnotesize},basicstyle={\ttfamily},breaklines=true,tabsize=4,extendedchars=true,morekeywords={$,docker,INSTRUCTION,RUN,WORKDIR},escapeinside={<@}{@>}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+RUN git clone https://github.com/.../some_repo.git 
+\end_layout
+
+\begin_layout Plain Layout
+
+WORKDIR /some_repo
+\end_layout
+
+\begin_layout Plain Layout
+
+RUN git checkout <@
+\backslash
+textbf{
+\backslash
+textcolor{blue}{v2.0.0}}@>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prostorová složitost
+\series default
+ - potřebné paměťové (prostorové) nároky v závislosti na délce vstupních
+ dat
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.example.com"
+target "http://www.example.com"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cmark
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Toto je OK
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+xmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\xcancel{3x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{lightgray}{
+\backslash
+texttt{--no-cache=true}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="15col%">
+<column alignment="center" valignment="middle" width="25col%">
+<column alignment="center" valignment="middle" width="50col%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{lightgray}
+\end_layout
+
+\end_inset
+
+Notace
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{lightgray}
+\end_layout
+
+\end_inset
+
+Význam
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{lightgray}
+\end_layout
+
+\end_inset
+
+Definice
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{lightgray}
+\end_layout
+
+\end_inset
+
+
+\series default
+
+\begin_inset Formula $f\left(n\right)=\mathcal{O}\left(g\left(n\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Foo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Používané notace asymptotické složitosti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi_{2}\left(N\right) & = & p=\ldots\\
+\log\left(N\right) & = & \gamma\log^{2}\left(p\right)\,\,\left\llbracket /\nicefrac{\phantom{}}{\gamma};\,/\sqrt{\phantom{}}\right\rrbracket \\
+\log\left(p\right) & = & \sqrt{\underset{\highlight{\phantom{}}=\gamma'}{\highlight{\frac{1}{\gamma}}}\log\left(N\right)}\,\,\left\llbracket /\log\right\rrbracket 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/adder-pps-schema.svg
+	lyxscale 50
+	width 85text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figure title foo bar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ukázka Booktabs
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Ukázka-Booktabs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Box Shadowbox
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0.1mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape slanted
+Věta 5, Hallova věta o párování
+\end_layout
+
+\begin_layout Plain Layout
+Libovolný 
+\begin_inset Formula $m$
+\end_inset
+
+-regulární graf s 
+\begin_inset Formula $2n$
+\end_inset
+
+ uzly může být rozložen do 
+\begin_inset Formula $m$
+\end_inset
+
+ dokonalých párování čili má 
+\begin_inset Formula $m$
+\end_inset
+
+-barvení hran v čase 
+\begin_inset Formula $\mathcal{O}\left(m*n^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align right
+
+\size scriptsize
+přenáška 9, slide 20
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0.1mm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{3}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -272,16 +1030,41 @@ Vítr skoro nefouká a tak by se na první pohled mohlo zdát, že se balónky
  Jenom tak klidně levitují ve vzduchu.
  Jelikož slunce jasně září a na obloze byste od východu k západu hledali
  mráček marně, balónky působí jako jakási fata morgána uprostřed pouště.
- Zkrátka široko daleko nikde nic, jen zelenkavá tráva, jasně modrá obloha
- a tři křiklavě barevné pouťové balónky, které se téměř nepozorovatelně
- pohupují ani ne moc vysoko, ani moc nízko nad zemí.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{red!50}{Široko daleko nikde}
+\end_layout
+
+\end_inset
+
+ široko daleko nikde nic, jen zelenkavá tráva, jasně modrá obloha a tři
+ křiklavě barevné pouťové balónky, které se téměř nepozorovatelně pohupují
+ ani ne moc vysoko, ani moc nízko nad zemí.
  Kdyby pod balónky nebyla sytě zelenkavá tráva, ale třeba suchá silnice
  či beton, možná by bylo vidět jejich barevné stíny - to jak přes poloprůsvitné
  barevné balónky prochází ostré sluneční paprsky.
 \end_layout
 
-\begin_layout Subsection
-Ukázka Booktabs
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -429,7 +1212,7 @@ end{tabular}
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Booktabs v praxi
@@ -440,13 +1223,901 @@ Booktabs v praxi
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
 \begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Python,numbers=left,numberstyle={\footnotesize},basicstyle={\ttfamily},breaklines=true,tabsize=4,extendedchars=true,mathescape=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Succ[1, ..., n] ve sdílené paměti
+\end_layout
+
+\begin_layout Plain Layout
+
+def listRanking(int[] Succ) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Ranks[1, ..., n]
+\end_layout
+
+\begin_layout Plain Layout
+
+	Ranks = array(Succ.length)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	for i in n do_in_parallel {
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		# <RLW> = 3
+\end_layout
+
+\begin_layout Plain Layout
+
+		if Succ[i] == i:
+\end_layout
+
+\begin_layout Plain Layout
+
+			# (A): Pokud následník prvku je on
+\end_layout
+
+\begin_layout Plain Layout
+
+			# sám (poslední prvek) -> rank = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+			Ranks[i] = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+		else:
+\end_layout
+
+\begin_layout Plain Layout
+
+			Ranks[i] = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		# $
+\backslash
+lceil
+\backslash
+log
+\backslash
+left(n
+\backslash
+right)
+\backslash
+rceil$ * <RRRR LL WW> = $
+\backslash
+log
+\backslash
+left(n
+\backslash
+right)$ * 7
+\end_layout
+
+\begin_layout Plain Layout
+
+		repeat upperPart(log(n)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			Ranks[i] += Ranks[Succ[i]]
+\end_layout
+
+\begin_layout Plain Layout
+
+			Succ[i] = Succ[Succ[i]] # Pointer jumping
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return Ranks; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\family typewriter
+CREW_PRAM_List_Ranking
+\family default
+; Počet procesorů se rovná velikosti pole (
+\begin_inset Formula $p=n$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,numberstyle={\footnotesize},basicstyle={\ttfamily},breaklines=true,tabsize=4,extendedchars=true,morekeywords={$,docker},escapeinside={<@}{@>}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ docker run -it ubuntu /bin/bash
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+root@812c5d311ea1:/# touch new_file.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+root@812c5d311ea1:/# exit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$ docker commit 
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		--message "File was added to the container" 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		--author "John Doe" 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		812c5d311ea1 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		johndoe/my-ubuntu:v0.1.0
+\end_layout
+
+\begin_layout Plain Layout
+
+sha256:3383c53c7...6cde47dab851d
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$ docker images
+\end_layout
+
+\begin_layout Plain Layout
+
+REPOSITORY          TAG      IMAGE ID       ...
+   SIZE 
+\end_layout
+
+\begin_layout Plain Layout
+
+johndoe/my-ubuntu   v0.1.0   812c5d311ea1   ...
+   122 MB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vytvoření vlastního image příkazem 
+\family typewriter
+commit
+\family default
+.
+\end_layout
+
+\end_inset
+
+ Vytvoření vlastního image příkazem 
+\family typewriter
+commit
+\family default
+.
+ Nejprve byl spuštěn základní image 
+\begin_inset Quotes gld
+\end_inset
+
+ubuntu
+\begin_inset Quotes grd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Foo
+\end_layout
+
+\begin_layout Standard
+V kapitole 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:Ukázka-Booktabs"
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "subsec:Ukázka-Booktabs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ta přebírá dva parametry: odkud a kam.
+ Ve
+\begin_inset space ~
+\end_inset
+
+výše uvedeném příkladu jsme použili jako zdroj tečku (
+\family typewriter
+COPY
+\begin_inset space ~
+\end_inset
+
+
+\family default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{lightgray}{
+\backslash
+vphantom{Y}
+\backslash
+texttt{.}}
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+
+\begin_inset space ~
+\end_inset
+
+/usr/src/app
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Shadowbox
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\shape italic
+Struktura souborů v Docker projektu
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+dirtree{% 
+\end_layout
+
+\begin_layout Plain Layout
+
+.1 /project.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 .dockerignore.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 .gitignore.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 docker-compose.yml.
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 docker-compose-dev.yml.
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 Dockerfile.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 Dockerfile-dev.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 
+\backslash
+vdots.
+\end_layout
+
+\begin_layout Plain Layout
+
+.2 src/.
+\end_layout
+
+\begin_layout Plain Layout
+
+.3 
+\backslash
+vdots.
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="7cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\shape smallcaps
+Policy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\noun on
+Význam
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+no
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pokud se proces uvnitř kontejneru zastaví, kontejner znovu nenastartuje.
+ Toto je výchozí chování.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+on-failure[:max-retries]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Restartuje kontejner pokud se proces uvnitř kontejneru zastaví na nějakém
+ nenulovém stavu.
+ Volitelně je možné omezit počet pokusů na zotavení.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+always
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Docker v tomto módu ignoruje návratový kód procesu a kontejner spustí znovu.
+ Kontejner také nastartuje při startu Docker démona – typicky při startu
+ celého systému.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+unless-stopped
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stejné jako volba 
+\family typewriter
+always
+\family default
+.
+ Pokud však uživatel kontejner cíleně zastavil příkazem
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+docker
+\begin_inset space ~
+\end_inset
+
+stop
+\family default
+, Docker démon se jej nepokusí znovu spustit.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Přehled 
+\shape italic
+restart policies 
+\shape default
+pro kontejnery.
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Přehled 
+\shape italic
+restart policies
+\shape default
+ pro kontejnery.
+\end_layout
+
+\end_inset
+
+ Volbu je možné předat parametrem 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{lightgray}{
+\backslash
+texttt{--restart POLICY}}
+\end_layout
+
+\end_inset
+
+ a to buď při spouštění kontejneru pomocí 
+\family typewriter
+docker
+\begin_inset space ~
+\end_inset
+
+run
+\family default
+ anebo v souboru 
+\family typewriter
+docker-compose
+\family default
+.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AmazonWebServices2016"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "bibtotoc,csn690"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label ".NET\\_{}Stopwatch-2016"
+key ".NET_Stopwatch-2016"
+
+\end_inset
+
+.NET Framework – Stopwatch Class [online].
+ 2016 [cit.
+\begin_inset space ~
+\end_inset
+
+2016-02-14].
+ Dostupné z: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://msdn.microsoft.com/en-us/library/system.diagnostics.stopwatch%28v=vs.110%29.as
+px?f=255&MSPPError=-2147217396
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "SATLIB-Benchmark-2016"
+key "SATLIB-Benchmark-2016"
+
+\end_inset
+
+UBC Computer Science – SATLIB - Benchmark Problems [online].
+ 2016 [cit.
+\begin_inset space ~
+\end_inset
+
+2016-02-14].
+ Dostupné z: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/uf20-91.tar.gz
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Selman-2016"
+key "Selman-2016"
+
+\end_inset
+
+SELMAN, Bart.
+ Stochastic Search And Phase Phase Transitions: Transitions: AI Meets Physics
+ AI Meets Physics [prezentace].
+ 
 \end_layout
 
 \end_body
