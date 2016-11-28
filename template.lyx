@@ -21,6 +21,7 @@
 \usepackage{cleveref}
 \usepackage{colortbl}				% http://ctan.org/pkg/colortbl
 \usepackage{dirtree}				% directory tree visualisation
+\usepackage{framed}				% Frames, vertical lines for quote
 % ################################
 % // END OF PACKAGES
 % ################################
@@ -311,6 +312,24 @@ target "https://creativecommons.org/licenses/by-sa/4.0/"
 \end_layout
 
 \begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage clearpage
 \end_inset
 
@@ -403,6 +422,74 @@ status open
 
 \backslash
 LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int\int\int
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{leftbar}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Quotation
+Habsbursko-lotrinská dynastie byla v letech 1780 - 1918 panující šlechtická
+ rodina v zemích habsburské monarchie a tudíž i pátá a poslední česká královská
+ dynastie.
+ Habsbursko-lotrinská dynastie je dnes jedinou žijící větví dynastie Lotrinků.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{leftbar}
 \end_layout
 
 \end_inset
