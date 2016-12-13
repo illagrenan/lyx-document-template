@@ -61,7 +61,6 @@
 \definecolor{lightgray}{gray}{0.8}
 \definecolor{green}{RGB}{0, 180, 0}
 \definecolor{cyan}{RGB}{0, 180, 180}
-\definecolor{yellow}{RGB}{211,211,0}
 % ################################
 % // END OF CUSTOM COLORS
 % ################################
