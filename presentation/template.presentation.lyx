@@ -7,6 +7,7 @@
 \textclass beamer
 \begin_preamble
 \usetheme{metropolis}
+
 \usepackage{lmodern}
 % Hide top subtitles:
 \setbeamercovered{transparent}

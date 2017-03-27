@@ -21,7 +21,14 @@
 \usepackage{cleveref}
 \usepackage{colortbl}				% http://ctan.org/pkg/colortbl
 \usepackage{dirtree}				% directory tree visualisation
-\usepackage{framed}				% Frames, vertical lines for quote
+\usepackage{mdframed}				% Frames, vertical lines for quote
+\usepackage{framed}				% Same as above, maybe delete?
+\usepackage{tcolorbox}				% Nice boxes
+\usepackage{euscript}				% Nice handwritten math symbols
+\usepackage{fontawesome}			% FA Icons
+\usepackage{soul}				% Text highlighting	
+\usepackage{pifont}
+\usepackage{totpages}
 % ################################
 % // END OF PACKAGES
 % ################################
@@ -29,24 +36,31 @@
 % ################################
 % DOCUMENT SETTINGS
 % ################################
+
+
 \exhyphenpenalty=10000\hyphenpenalty=10000		% Disable word hypnetation
 \setlength{\parindent}{0pt}			% Disable paragraph intendation
 \date{}					% Disable autodate on first page
 
-\makeatletter				% See: https://tex.stackexchange.com/questions/135303/reset-equation-line-numbers-in-lyx
-\let\old@start@align\start@align
-\def\start@align{\setcounter{equation}{0}\old@start@align}
+%\makeatletter				% See: https://tex.stackexchange.com/questions/135303/reset-equation-line-numbers-in-lyx
+%\let\old@start@align\start@align
+%\def\start@align{\setcounter{equation}{0}\old@start@align}
+%\makeatother
+
+\@addtoreset{equation}{section} 
 
 \addtokomafont{disposition}{\rmfamily}		% See: https://tex.stackexchange.com/questions/25845/koma-script-change-font-of-sectioning-headings-to-serif
 \addtokomafont{descriptionlabel}{\rmfamily}		
 
 \hypersetup{%
     pdfborder = {0 0 0},
-    colorlinks,
-    citecolor=black,
+    colorlinks=true,
+    citecolor=blue,
     filecolor=black,
     linkcolor=black,
-    urlcolor=blue
+    urlcolor=blue,
+    anchorcolor=blue,
+    allcolors=blue
 }	
 
 \renewcommand{\arraystretch}{1.5}			% See: https://tex.stackexchange.com/questions/35515/how-can-i-reduce-table-row-height
@@ -57,10 +71,12 @@
 % ################################
 % CUSTOM COLORS
 % ################################
-
+\definecolor{BlueLUH}{cmyk}{1.0,0.7,0,0}
 \definecolor{lightgray}{gray}{0.8}
 \definecolor{green}{RGB}{0, 180, 0}
 \definecolor{cyan}{RGB}{0, 180, 180}
+\colorlet{lightblue}{BlueLUH!20!white}
+\colorlet{darkblue}{BlueLUH!80!black!20}
 % ################################
 % // END OF CUSTOM COLORS
 % ################################
@@ -89,8 +105,11 @@
 % ################################
 % CUSTOM COMMANDS
 % ################################
-\newcommand{\highlight}[1]{%
-  \colorbox{red!50}{$\displaystyle#1$}}
+\newcommand{\highlight}[2][yellow]{\mathchoice%
+  {\colorbox{#1}{$\displaystyle#2$}}%
+  {\colorbox{#1}{$\textstyle#2$}}%
+  {\colorbox{#1}{$\scriptstyle#2$}}%
+  {\colorbox{#1}{$\scriptscriptstyle#2$}}}%
 % ################################
 % // END OF CUSTOM COMMANDS
 % ################################
@@ -150,11 +169,27 @@
 \fancypagestyle{plain}{
 \fancyhf{} % clear all header and footer fields
 \fancyfoot[C]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage} % except the center
+\fancyfoot[C]{\fontsize{9pt}{9pt}\selectfont Strana \thepage\ z \ref*{TotPages}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 }
 \pagestyle{plain}
 % ################################
+
+% https://tex.stackexchange.com/questions/86381/adding-vertical-lines-to-each-side-of-a-paragraph
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep,
+  leftmargin=-10pt,
+  rightmargin=-10pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt,
+  linewidth=2pt
+]{siderules}
+
+\pdfminorversion=6
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -396,6 +431,39 @@ sloppy
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+colorbox{lightblue}{
+\end_layout
+
+\end_inset
+
+
+\shape italic
+Foo == bar
+\shape default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -605,6 +673,8 @@ Lorem ipsum.
 status open
 
 \begin_layout Plain Layout
+\noindent
+\align left
 
 \shape italic
 \color blue
@@ -642,6 +712,25 @@ velikost vstupních dat
 \series default
 , zajímá nás chování funkce pro velká 
 \begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align left
+
+\shape italic
+\size normal
+\color purple
+Výběrový průměr se blíží normálnímu rozdělení.
+\end_layout
+
 \end_inset
 
 
